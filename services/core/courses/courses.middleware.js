@@ -13,7 +13,7 @@ module.exports = (server) => {
 			queryStr = query.query,
 			courses = server.db.getState().courses;
 		if (queryStr) {
-			courses = courses.filter(item => item.name.toLowerCase().indexOf(search.toLowerCase()) > -1);
+			courses = courses.filter(item => item.name.toLowerCase().indexOf(queryStr.toLowerCase()) > -1);
 		}
 
 		const total = courses.length;
