@@ -28,5 +28,13 @@ module.exports = (server) => {
 		});
 	});
 
+	router.get('/courses/authors', (req, res, next) => {
+		let dbState = server.db.getState();
+		let authors = dbState.courses.reduce(
+			(result, item) => result.concat(item.authors), []);
+
+		res.json(authors);
+	});
+
 	return router;
 };
